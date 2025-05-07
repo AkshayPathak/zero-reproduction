@@ -1,15 +1,22 @@
 {
-  "name": "monorepo-template",
+  "name": "new-zero",
   "version": "0.0.0",
   "workspaces": [
     "packages/*"
   ],
-  "scripts": {},
+  "scripts": {
+    "dev": "sst dev"
+  },
   "devDependencies": {
     "@tsconfig/node22": "^22",
     "typescript": "^5"
   },
   "dependencies": {
+    "@rocicorp/zero": "0.19.2025050203",
+    "hono": "^4.7.8",
     "sst": "^3"
-  }
+  },
+  "trustedDependencies": [
+    "@rocicorp/zero-sqlite3"
+  ]
 }

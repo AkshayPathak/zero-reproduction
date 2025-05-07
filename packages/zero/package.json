@@ -1,0 +1,25 @@
+{
+  "name": "@new-zero/zero",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev:zero-cache": "sst shell -- zero-cache-dev -p src/schema/schema.ts",
+    "build": "tsc"
+  },
+  "exports": {
+    "./*": [
+      "./src/*/index.ts",
+      "./src/*.ts"
+    ]
+  },
+  "dependencies": {
+    "@new-zero/core": "*",
+    "@rocicorp/zero": "*",
+    "hono": "*",
+    "postgres": "^3.4.5",
+    "sst": "*"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8"
+  }
+}

@@ -1,0 +1,23 @@
+services:
+  new-zero-postgres:
+    image: postgres:latest
+    container_name: new-zero-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    command: |
+      postgres 
+      -c wal_level=logical
+      -c max_wal_senders=10 
+      -c max_replication_slots=5 
+      -c hot_standby=on 
+      -c hot_standby_feedback=on
+    volumes:
+      - new_zero_pgdata:/var/lib/postgresql/data
+      - ./:/docker-entrypoint-initdb.d
+
+volumes:
+  new_zero_pgdata:
+    driver: local
