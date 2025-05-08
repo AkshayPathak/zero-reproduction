@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@rocicorp/zero": "0.19.2025050203",
+    "dotenv": "^16.5.0",
     "hono": "^4.7.8",
     "sst": "^3"
   },

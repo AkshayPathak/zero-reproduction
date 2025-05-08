@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "dev:zero-cache": "sst shell -- zero-cache-dev -p src/schema/schema.ts",
+    "dev:zero-cache": "zero-cache-dev -p src/schema/schema.ts",
     "build": "tsc"
   },
   "exports": {
@@ -14,12 +14,12 @@
     ]
   },
   "dependencies": {
-    "@new-zero/core": "*",
     "@rocicorp/zero": "*",
     "hono": "*",
     "@hono/node-server": "^1.14.1",
     "postgres": "^3.4.5",
-    "sst": "*"
+    "sst": "*",
+    "dotenv": "^16.5.0"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8",
