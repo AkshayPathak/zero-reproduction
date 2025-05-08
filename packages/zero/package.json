@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "dev": "tsx watch src/server.ts",
     "dev:zero-cache": "sst shell -- zero-cache-dev -p src/schema/schema.ts",
     "build": "tsc"
   },
@@ -16,10 +17,14 @@
     "@new-zero/core": "*",
     "@rocicorp/zero": "*",
     "hono": "*",
+    "@hono/node-server": "^1.14.1",
     "postgres": "^3.4.5",
     "sst": "*"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8"
+    "@types/aws-lambda": "^8",
+    "@types/node": "^20.11.17",
+    "tsx": "^4.7.1",
+    "typescript": "^5.8.3"
   }
 }

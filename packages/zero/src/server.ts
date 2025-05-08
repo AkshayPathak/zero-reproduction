@@ -4,16 +4,18 @@ import {
   PushProcessor,
 } from "@rocicorp/zero/pg";
 import { Hono } from "hono";
-import { handle } from "hono/aws-lambda";
 import postgres from "postgres";
 import { createMutators } from "./mutators";
 import { schema } from "./schema/schema";
+import { serve } from "@hono/node-server";
 
 export const app = new Hono().basePath("/api");
 
 const processor = new PushProcessor(
   new ZQLDatabase(
-    new PostgresJSConnection(postgres(process.env.ZERO_UPSTREAM_DB as string)),
+    new PostgresJSConnection(
+      postgres("postgresql://postgres:password@localhost:5432/new_zero"),
+    ),
     schema,
   ),
 );
@@ -27,4 +29,12 @@ app.post("/push", async (c) => {
   return c.json(result);
 });
 
-export const handler = handle(app);
+serve(
+  {
+    fetch: app.fetch,
+    port: 5173,
+  },
+  (info) => {
+    console.log(`Server is running on http://localhost:${info.port}`);
+  },
+);

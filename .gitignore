@@ -7,9 +7,6 @@ node_modules
 # tmp files
 .#*
 
-# env 
-.env*.local
-.env
 
 # opennext
 .open-next

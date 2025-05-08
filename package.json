@@ -5,7 +5,10 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "sst dev"
+    "dev:db-up": "docker compose -f docker/docker-compose.yml up",
+    "dev:push": "source .env && cd packages/zero && bun dev",
+    "dev:zero-cache": "source .env && cd packages/zero && bun dev:zero-cache",
+    "dev:web": "source .env && cd packages/web && bun dev"
   },
   "devDependencies": {
     "@tsconfig/node22": "^22",

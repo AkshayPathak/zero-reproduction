@@ -32,7 +32,7 @@ declare module "@tanstack/react-router" {
 const z = new Zero({
   userID: "123",
   auth: "",
-  server: import.meta.env.VITE_PUBLIC_SERVER,
+  server: "http://localhost:4848",
   schema: schema,
   mutators: createMutators(),
   kvStore: "idb",

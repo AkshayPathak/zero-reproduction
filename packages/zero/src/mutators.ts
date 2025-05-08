@@ -7,7 +7,7 @@ export function createMutators() {
     people: {
       async update(tx, person: PeopleUpdate) {
         const prev = await tx.query.people.where("id", person.id).one().run();
-        console.log(prev?.id); // Prints the id on client but undefined on server
+        console.log("previous", prev?.id); // Prints the id on client but undefined on server
         await tx.mutate.people.update(person);
       },
     },
